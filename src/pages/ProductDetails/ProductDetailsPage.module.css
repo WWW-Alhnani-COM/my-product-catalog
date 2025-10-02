@@ -1,0 +1,75 @@
+/* src/pages/ProductDetails/ProductDetailsPage.module.css */
+.productDetailsPage {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.productImageContainer {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.productImageLarge {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px; /* حدد ارتفاع أقصى */
+  object-fit: contain; /* حافظ على نسبة الأبعاد */
+}
+
+.productInfoContainer {
+  flex: 1;
+  min-width: 300px;
+}
+
+.productInfoContainer h1 {
+  margin-top: 0;
+  color: #333;
+}
+
+.productPrice {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.productRating {
+  color: #777;
+  font-style: italic;
+}
+
+.productDescription {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .productDetailsPage {
+    flex-direction: column;
+  }
+  .productImageContainer,
+  .productInfoContainer {
+    min-width: 100%;
+  }
+}

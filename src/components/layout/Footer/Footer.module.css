@@ -1,0 +1,8 @@
+/* src/components/layout/Footer/Footer.module.css */
+.footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto; /* ل_PUSH footer إلى الأسفل */
+}

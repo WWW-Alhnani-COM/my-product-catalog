@@ -1,0 +1,10 @@
+/* src/pages/Products/ProductsPage.module.css */
+.productsPage {
+  padding: 1rem;
+}
+
+.productsPage h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
