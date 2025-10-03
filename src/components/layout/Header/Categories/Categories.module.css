@@ -2,10 +2,16 @@
 .categories {
   background-color: white;
   padding: 1.5rem 0;
-  position: sticky;
+  position: sticky; /* أو relative إذا كنت لا تريد أن يثبت عند التمرير */
   top: 60px; /* قد تحتاج تعديل حسب ارتفاع الهيدر */
   z-index: 99;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* إضافة ظل خفيف */
+  /* --- تعديلات التوسيط --- */
+  display: flex; /* جعل الحاوية تستخدم Flexbox */
+  flex-direction: column; /* ترتيب العناصر عموديًا */
+  align-items: center; /* توسيط العناصر أفقيًا */
+  width: 100%; /* تأكد من أن الحاوية تأخذ العرض الكامل */
+  /* --- النهاية --- */
 }
 
 /* حالة الظهور */
@@ -36,13 +42,18 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: all 0.3s ease;
+  /* --- تعديلات التوسيط --- */
+  align-self: center; /* جعل العنوان يتوسط داخل الحاوية */
+  /* --- النهاية --- */
 }
 
 .categoryList {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0 1rem;
+  /* --- تعديلات التوسيط --- */
+  padding: 0; /* إزالة padding الجانبي */
+  /* --- النهاية --- */
   gap: 1.5rem;
   /* تغيير السلوك على الشاشات الصغيرة */
   flex-wrap: nowrap; /* منع الالتفاف */
@@ -52,6 +63,12 @@
   scrollbar-width: none;  /* Firefox */
   /* منع القفز عند التبديل */
   transition: all 0.3s ease;
+  /* --- تعديلات التوسيط --- */
+  align-self: center; /* جعل القائمة تتوسط داخل الحاوية */
+  justify-content: center; /* توسيط العناصر داخل القائمة */
+  width: 100%; /* جعل القائمة تأخذ العرض الكامل المتوفر */
+  max-width: 1200px; /* تقييد العرض الأقصى */
+  /* --- النهاية --- */
 }
 
 .categoryList::-webkit-scrollbar {
@@ -218,7 +235,7 @@
   
   .categoryList {
     gap: 1rem;
-    padding: 0 0.5rem;
+    /* padding: 0 0.5rem; <-- تم حذفه */
   }
   
   .categoryLink {
