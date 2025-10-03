@@ -35,8 +35,7 @@
 }
 
 .navLink.active {
-  color: #ffffff;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: #ff6b6b;
   font-weight: 600;
 }
 
