@@ -12,11 +12,7 @@
   متجر إلكتروني بسيط مبني باستخدام React و Vite. يعرض منتجات من Fake Store API ويوفر تصفح فئات، بحث، وصفحات تفاصيل المنتج.
 </p>
 
-<p align="center">
-  <img src=" https://img.shields.io/github/languages/count/WWW-Alhnani-COM/my-product-catalog " alt="GitHub language count">
-  <img src="https://img.shields.io/github/license/WWW-Alhnani-COM/my-product-catalog " alt="License">
-  <img src="https://img.shields.io/github/last-commit/WWW-Alhnani-COM/my-product-catalog " alt="GitHub last commit">
-</p>
+
 
 ---
 
