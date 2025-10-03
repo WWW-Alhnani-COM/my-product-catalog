@@ -1,9 +1,11 @@
+/* src/components/layout/Categories/Categories.module.css */
 .categories {
   background-color: white;
   padding: 1.5rem 0;
   position: sticky;
-  top: 60px;
+  top: 60px; /* قد تحتاج تعديل حسب ارتفاع الهيدر */
   z-index: 99;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* إضافة ظل خفيف */
 }
 
 /* حالة الظهور */
@@ -11,6 +13,8 @@
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
+  /* منع القفز عند التبديل */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
 }
 
 /* حالة الاختفاء */
@@ -18,6 +22,8 @@
   transform: translateY(-100%);
   opacity: 0;
   visibility: hidden;
+  /* منع القفز عند التبديل */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
 }
 
 .title {
@@ -38,14 +44,25 @@
   margin: 0;
   padding: 0 1rem;
   gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  /* تغيير السلوك على الشاشات الصغيرة */
+  flex-wrap: nowrap; /* منع الالتفاف */
+  overflow-x: auto; /* تمكين التمرير الأفقي */
+  overflow-y: hidden; /* منع التمرير العمودي */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /* منع القفز عند التبديل */
   transition: all 0.3s ease;
 }
 
+.categoryList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 .categoryItem {
+  flex: 0 0 auto; /* منع العناصر من التمدد أو الانكماش */
   margin: 0;
-  flex: 0 0 auto;
+  /* منع القفز عند التبديل */
+  transition: all 0.3s ease;
 }
 
 .categoryLink {
@@ -58,7 +75,9 @@
   transition: all 0.3s ease;
   background: white;
   border: 1px solid #f0f0f0;
-  min-width: 100px;
+  min-width: 100px; /* الحد الأدنى للعرض */
+  /* منع القفز عند التبديل */
+  transition: all 0.3s ease;
 }
 
 .categoryLink:hover {
@@ -185,10 +204,11 @@
   background: #5a6fd8;
 }
 
+/* --- تعديلات الجوال --- */
 @media (max-width: 768px) {
   .categories {
     padding: 1rem 0;
-    top: 50px;
+    top: 50px; /* قد تحتاج تعديل حسب ارتفاع الهيدر */
   }
   
   .title {
@@ -203,7 +223,7 @@
   
   .categoryLink {
     padding: 0.75rem 0.5rem;
-    min-width: 80px;
+    min-width: 80px; /* تعديل الحد الأدنى للعرض */
   }
   
   .imageWrapper {
@@ -213,7 +233,7 @@
   
   .categoryName {
     font-size: 0.75rem;
-    max-width: 80px;
+    max-width: 80px; /* تعديل الحد الأقصى للعرض */
   }
 }
 
@@ -223,7 +243,7 @@
   }
   
   .categoryLink {
-    min-width: 70px;
+    min-width: 70px; /* تعديل الحد الأدنى للعرض */
     padding: 0.5rem;
   }
   
@@ -234,9 +254,10 @@
   
   .categoryName {
     font-size: 0.7rem;
-    max-width: 70px;
+    max-width: 70px; /* تعديل الحد الأقصى للعرض */
   }
 }
+/* --- النهاية --- */
 
 /* تأثيرات إضافية للشريط المخفي */
 .categories.hidden {
