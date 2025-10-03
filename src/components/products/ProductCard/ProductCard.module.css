@@ -9,7 +9,7 @@
 .productCardContent { /* هذا هو المحتوى داخل Card */
   display: flex;
   flex-direction: column;
-  height: 100%; /* لتمديد المحتوى */
+  height:80%; /* لتمديد المحتوى */
   cursor: pointer; /* مؤشر عند التمرير */
   transition: transform 0.3s ease; /* انتقال للتحريك */
 }
@@ -21,7 +21,7 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  height: 200px; /* تعيين ارتفاع للصورة */
+  height: 200px; /* تقليل ارتفاع الصورة */
   overflow: hidden;
 }
 
@@ -51,31 +51,32 @@
 }
 
 .productInfo {
-  padding: 0.75rem 1rem 1rem 1rem;
+  padding: 0.5rem 0.75rem; /* تقليل padding */
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* دفع الزر للأسفل */
   height: 100%;
+  min-height: 100px; /* تقليل الحد الأدنى للارتفاع */
 }
 
 .productTitle {
-  font-size: 0.95rem;
-  margin: 0 0 0.25rem 0;
-  line-height: 1.4;
+  font-size: 0.9rem; /* تقليل حجم الخط */
+  margin: 0 0 0.15rem 0; /* تقليل الهامش */
+  line-height: 1.3; /* تقليل ارتفاع السطر */
   color: #333;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 2; /* عرض سطرين فقط */
   -webkit-box-orient: vertical;
 }
 
 .productCategory {
-  font-size: 0.8rem;
+  font-size: 0.75rem; /* تقليل حجم الخط */
   color: #888;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.15rem 0; /* تقليل الهامش */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -84,28 +85,27 @@
 .priceContainer {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin: 0.25rem 0 0.5rem 0;
+  gap: 0.4rem; /* تقليل التباعد */
+  margin: 0.15rem 0 0.4rem 0; /* تقليل الهامش */
 }
 
 .productPrice {
-  font-size: 1.1rem;
+  font-size: 1rem; /* تقليل حجم الخط */
   font-weight: bold;
   color: #ff3b30;
   margin: 0;
 }
 
 .originalPrice {
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* تقليل حجم الخط */
   color: #999;
   text-decoration: line-through;
   margin: 0;
 }
 
 .cardAddToCartBtn {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem; /* تقليل padding */
+  font-size: 0.85rem; /* تقليل حجم الخط */
   width: 100%;
-  margin-top: 0.5rem;
-  /* لا حاجة لتحديد border-radius أو background هنا، لأن Button.jsx و Button.module.css يتعاملان معها */
+  margin-top: 0.4rem; /* تقليل الهامش */
 }
