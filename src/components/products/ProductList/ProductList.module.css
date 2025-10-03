@@ -14,10 +14,20 @@
   width: 100%;
 }
 
+/* --- تعديل هذا الجزء --- */
 @media (max-width: 768px) {
   .productList {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* تعديل الحد الأدنى للعرض على الشاشات الصغيرة */
-    gap: 1.25rem; /* تقليل الفراغ قليلاً */
-    padding: 1rem; /* تقليل التباعد */
+    grid-template-columns: repeat(2, 1fr); /* عرض 2 بطاقة فقط في الصف */
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+}
+
+/* إذا كنت ترغب في عرض بطاقة واحدة فقط على شاشات أصغر (مثل 480px) */
+@media (max-width: 480px) {
+  .productList {
+    grid-template-columns:  repeat(2, 1fr);/* عرض بطاقة واحدة فقط في الصف */
+    gap: 1rem;
+    padding: 0.5rem;
   }
 }
