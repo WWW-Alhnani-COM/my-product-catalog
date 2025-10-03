@@ -1,20 +1,23 @@
 /* src/components/products/ProductList/ProductList.module.css */
 .productList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* تعديل الحد الأدنى للعرض */
+  gap: 2rem; /* زيادة الفراغ بين البطاقات */
+  padding: 1.5rem; /* زيادة التباعد من الأطراف */
+  justify-content: center; /* توسيط الشبكة */
 }
 
 .error {
   color: red;
   text-align: center;
   padding: 2rem;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
   .productList {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* تعديل الحد الأدنى للعرض على الشاشات الصغيرة */
+    gap: 1.25rem; /* تقليل الفراغ قليلاً */
+    padding: 1rem; /* تقليل التباعد */
   }
 }

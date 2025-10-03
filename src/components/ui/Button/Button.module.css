@@ -1,29 +1,39 @@
 /* src/components/ui/Button/Button.module.css */
 .button {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.2s ease;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .primary {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
   color: white;
 }
 
 .primary:hover:not(:disabled) {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #ff5252, #ff7b47);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.primary:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 .secondary {
-  background-color: #6c757d;
-  color: white;
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #dee2e6;
 }
 
 .secondary:hover:not(:disabled) {
-  background-color: #545b62;
+  background-color: #e9ecef;
+  border-color: #adb5bd;
 }
 
 .danger {
@@ -38,4 +48,5 @@
 :disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }

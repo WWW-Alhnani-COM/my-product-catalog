@@ -1,0 +1,15 @@
+/* src/components/ui/Card/Card.module.css */
+.card {
+  border: 1px solid #ffffff; /* حد خفيف */
+  border-radius: 8px; /* تفاف الحواف */
+  overflow: hidden; /* لمنع تجاوز المحتوى */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* ظل خفيف */
+  background-color: white; /* لون خلفية */
+  transition: box-shadow 0.2s ease; /* انتقال لسلاسة الظل */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 1.1); /* ظل أكثر وضوحًا عند التمرير */
+
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 1.1); /* ظل أكثر وضوحًا عند التمرير */
+}

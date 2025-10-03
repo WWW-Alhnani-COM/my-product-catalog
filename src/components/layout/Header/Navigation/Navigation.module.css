@@ -1,27 +1,213 @@
-/* src/components/layout/Header/Navigation/Navigation.module.css */
+/* ===== التنقل للشاشات الكبيرة ===== */
+.desktopNav {
+  display: block;
+}
+
 .navList {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.5rem;
+  gap: 2rem;
+}
+
+.navItem {
+  margin: 0;
 }
 
 .navLink {
-  color: white;
+  color: #333;
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
 }
 
 .navLink:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  background-color: rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
 }
 
+.navLink.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  font-weight: 600;
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border-radius: 50%;
+}
+
+.navIcon {
+  display: none;
+  font-size: 1.2rem;
+}
+
+/* ===== التنقل السفلي للجوال ===== */
+.mobileNav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.mobileNavList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+}
+
+.mobileNavItem {
+  flex: 1;
+  text-align: center;
+}
+
+.mobileNavLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #ff3b30;
+  padding: 0.75rem 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mobileNavLink:hover {
+  color: #ff3b30;
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.mobileNavLink.mobileActive {
+  color: #ffffff;
+}
+
+.mobileNavLink.mobileActive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.mobileNavIcon {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.mobileNavLink.mobileActive .mobileNavIcon {
+  transform: scale(1.1);
+}
+
+.mobileNavText {
+  font-size: 0.7rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.mobileNavLink.mobileActive .mobileNavText {
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+/* ===== الوسائط المتعددة ===== */
+
+/* إخفاء التنقل العادي وإظهار التنقل السفلي على الجوال */
 @media (max-width: 768px) {
-  .navList {
-    gap: 1rem;
+  .desktopNav {
+    display: none;
+  }
+  
+  .mobileNav {
+    display: block;
+  }
+}
+
+/* إظهار التنقل العادي وإخفاء التنقل السفلي على الشاشات الكبيرة */
+@media (min-width: 769px) {
+  .desktopNav {
+    display: block;
+  }
+  
+  .mobileNav {
+    display: none;
+  }
+  
+  .navText {
+    display: inline;
+  }
+  
+  .navIcon {
+    display: none;
+  }
+}
+
+/* تحسينات للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .mobileNavLink {
+    padding: 0.6rem 0.3rem;
+  }
+  
+  .mobileNavIcon {
+    font-size: 1.2rem;
+  }
+  
+  .mobileNavText {
+    font-size: 0.65rem;
+  }
+}
+
+/* تأثيرات للشاشات التي تدعم اللمس */
+@media (hover: none) and (pointer: coarse) {
+  .mobileNavLink:active {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    transform: scale(0.95);
+  }
+}
+
+/* دعم الوضع الداكن */
+@media (prefers-color-scheme: dark) {
+  .mobileNav {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    border-top-color: #333;
+  }
+  
+  .mobileNavLink {
+    color: #ccc;
+  }
+  
+  .navLink {
+    color: #ccc;
+  }
+  
+  .navLink:hover {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
   }
 }

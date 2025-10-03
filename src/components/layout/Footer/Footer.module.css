@@ -1,8 +1,9 @@
 /* src/components/layout/Footer/Footer.module.css */
 .footer {
-  background-color: #343a40;
-  color: white;
+  background-color: #f8f9fa; /* لون خلفية فاتح */
+  color: #6c757d; /* لون نص رمادي */
   text-align: center;
-  padding: 1rem 0;
-  margin-top: auto; /* ل_PUSH footer إلى الأسفل */
+  padding: 1.5rem 0;
+  margin-top: auto; /* دفع الفوتر للأسفل */
+  border-top: 1px solid #e9ecef; /* خط فاصل */
 }

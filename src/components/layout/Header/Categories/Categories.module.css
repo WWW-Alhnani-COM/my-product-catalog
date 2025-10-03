@@ -1,0 +1,249 @@
+.categories {
+  background-color: white;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 60px;
+  z-index: 99;
+}
+
+/* حالة الظهور */
+.categories.visible {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* حالة الاختفاء */
+.categories.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.categoryList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.categoryItem {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.categoryLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 1rem 0.75rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: white;
+  border: 1px solid #f0f0f0;
+  min-width: 100px;
+}
+
+.categoryLink:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  border-color: #ff6b6b;
+}
+
+.imageWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  border: 3px solid #ff6b6b;
+  transition: all 0.3s ease;
+  position: relative;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryLink:hover .imageWrapper {
+  border-color: #ff6b6b;
+  transform: scale(1.05);
+}
+
+.categoryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.categoryLink:hover .categoryImage {
+  transform: scale(1.1);
+}
+
+.categoryName {
+  font-size: 0.85rem;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.categoryLink:hover .categoryName {
+  color: #667eea;
+}
+
+/* تحسين مظهر الأيقونة SVG */
+.imageWrapper img[src*="svg"] {
+  object-fit: contain;
+  padding: 15px;
+  background: #f8f9fa;
+}
+
+.categoryLink:hover .imageWrapper img[src*="svg"] {
+  background: #ff6b6b;
+}
+
+/* أنماط التحميل */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff6b6b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingContainer p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* أنماط الأخطاء */
+.errorContainer {
+  text-align: center;
+  padding: 2rem;
+  background: #ffebee;
+  border-radius: 8px;
+  margin: 0 1rem;
+  border: 1px solid #f5c6cb;
+}
+
+.errorContainer p {
+  color: #d32f2f;
+  margin-bottom: 1rem;
+}
+
+.retryButton {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.retryButton:hover {
+  background: #5a6fd8;
+}
+
+@media (max-width: 768px) {
+  .categories {
+    padding: 1rem 0;
+    top: 50px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .categoryList {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .categoryLink {
+    padding: 0.75rem 0.5rem;
+    min-width: 80px;
+  }
+  
+  .imageWrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .categoryName {
+    font-size: 0.75rem;
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryList {
+    gap: 0.75rem;
+  }
+  
+  .categoryLink {
+    min-width: 70px;
+    padding: 0.5rem;
+  }
+  
+  .imageWrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .categoryName {
+    font-size: 0.7rem;
+    max-width: 70px;
+  }
+}
+
+/* تأثيرات إضافية للشريط المخفي */
+.categories.hidden {
+  box-shadow: none;
+}
+
+/* إضافة مسافة عند الإخفاء لمنع القفز */
+body {
+  scroll-padding-top: 140px; /* ارتفاع الهيدر + شريط الفئات */
+}

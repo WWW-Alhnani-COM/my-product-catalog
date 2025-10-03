@@ -1,0 +1,293 @@
+/* src/components/products/ProductGrid/ProductGrid.module.css */
+.productGrid {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 4), 1fr);
+  gap: var(--gap, 1.5rem);
+  align-items: start;
+}
+
+/* حالة التحميل */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.loadingText {
+  margin-top: 1rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* حالة الخطأ */
+.errorContainer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border-radius: 16px;
+  border: 2px solid #fed7d7;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.errorTitle {
+  color: #c53030;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.errorMessage {
+  color: #744210;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+.retryButton {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(229, 62, 62, 0.35);
+}
+
+/* حالة عدم وجود منتجات */
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 16px;
+  border: 2px dashed #cbd5e0;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.emptyTitle {
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.emptyMessage {
+  color: #718096;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* مؤشر نهاية القائمة */
+.listEnd {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.listEnd p {
+  color: #718096;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* تأثيرات دخول البطاقات */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid > * {
+  animation: slideUpFade 0.6s ease forwards;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .productGrid {
+    padding: 0.5rem 0;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .loadingContainer,
+  .errorContainer,
+  .emptyState {
+    padding: 2rem 1rem;
+  }
+  
+  .errorIcon,
+  .emptyIcon {
+    font-size: 2.5rem;
+  }
+  
+  .errorTitle,
+  .emptyTitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .grid {
+    gap: 0.75rem;
+  }
+  
+  .loadingContainer,
+  .errorContainer,
+  .emptyState {
+    padding: 1.5rem 1rem;
+  }
+  
+  .loadingText,
+  .errorMessage,
+  .emptyMessage {
+    font-size: 1rem;
+  }
+}
+
+/* تحسينات للشاشات الكبيرة جداً */
+@media (min-width: 1440px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1920px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* تأثيرات hover للشبكة */
+.grid:hover > * {
+  transition: transform 0.3s ease;
+}
+
+.grid > *:hover {
+  z-index: 2;
+  position: relative;
+}
+
+/* تحسينات للأداء والوصول */
+@media (prefers-reduced-motion: reduce) {
+  .grid > * {
+    animation: none;
+  }
+  
+  .retryButton {
+    transition: none;
+  }
+}
+
+/* دعم للوضع الداكن */
+@media (prefers-color-scheme: dark) {
+  .emptyState {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    border-color: #718096;
+  }
+  
+  .emptyTitle {
+    color: #e2e8f0;
+  }
+  
+  .emptyMessage {
+    color: #a0aec0;
+  }
+  
+  .listEnd p {
+    color: #a0aec0;
+  }
+  
+  .listEnd {
+    border-top-color: #4a5568;
+  }
+}
+
+/* تحسينات للطباعة */
+@media print {
+  .productGrid {
+    padding: 0;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem;
+  }
+  
+  .listEnd {
+    display: none;
+  }
+}
+
+/* تأثيرات scroll reveal */
+.grid {
+  view-timeline-name: --product-grid;
+  view-timeline-axis: block;
+}
+
+.grid > * {
+  animation: slideUpFade linear both;
+  animation-timeline: --product-grid;
+  animation-range: entry 0% cover 40%;
+}
+
+/* تحسينات للشبكة مع عدد مختلف من الأعمدة */
+.grid[data-columns="2"] {
+  --grid-columns: 2;
+}
+
+.grid[data-columns="3"] {
+  --grid-columns: 3;
+}
+
+.grid[data-columns="4"] {
+  --grid-columns: 4;
+}
+
+.grid[data-columns="5"] {
+  --grid-columns: 5;
+}
+
+.grid[data-columns="6"] {
+  --grid-columns: 6;
+}

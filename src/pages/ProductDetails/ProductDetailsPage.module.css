@@ -2,10 +2,13 @@
 .productDetailsPage {
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 2rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 2rem;
+  gap: 2.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .productImageContainer {
@@ -19,8 +22,10 @@
 .productImageLarge {
   max-width: 100%;
   height: auto;
-  max-height: 500px; /* حدد ارتفاع أقصى */
-  object-fit: contain; /* حافظ على نسبة الأبعاد */
+  max-height: 600px; /* تحديد ارتفاع أقصى */
+  object-fit: contain;
+  border-radius: 8px; /* تفاف الحواف */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* ظل للصورة */
 }
 
 .productInfoContainer {
@@ -31,45 +36,64 @@
 .productInfoContainer h1 {
   margin-top: 0;
   color: #333;
+  font-size: 1.8rem; /* تكبير اسم المنتج */
+}
+
+.productCategory {
+  color: #888;
+  font-style: italic;
+  margin: 0.5rem 0;
 }
 
 .productPrice {
-  font-size: 1.5rem;
+  font-size: 2rem; /* تكبير السعر */
   font-weight: bold;
-  color: #007bff;
+  color: #ff3b30; /* لون أحمر للسعر */
+  margin: 1rem 0;
 }
 
 .productRating {
-  color: #777;
-  font-style: italic;
+  color: #ff9500; /* لون أصفر للنجم */
+  font-weight: bold;
+  margin: 0.5rem 0;
 }
 
 .productDescription {
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
 }
 
 .add-to-cart-btn {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #00c853, #64dd17); /* تدرج لوني للزر */
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 30px; /* شكل دائري */
   cursor: pointer;
-  margin-top: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3); /* ظل للزر */
+  width: 100%; /* عرض كامل */
 }
 
 .add-to-cart-btn:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #00b247, #59cc0f); /* تدرج مختلف عند التمرير */
+  box-shadow: 0 6px 16px rgba(0, 200, 83, 0.4); /* ظل أكثر وضوحًا */
 }
 
 @media (max-width: 768px) {
   .productDetailsPage {
     flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
   }
   .productImageContainer,
   .productInfoContainer {
     min-width: 100%;
+  }
+  .productPrice {
+    font-size: 1.5rem;
   }
 }

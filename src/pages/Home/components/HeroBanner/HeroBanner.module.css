@@ -1,35 +1,66 @@
 /* src/pages/Home/components/HeroBanner/HeroBanner.module.css */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/src/assets/images/hero-bg.jpg'); /* استبدل المسار */
+  background: linear-gradient(rgba(255, 255, 255, 0.178), rgba(233, 142, 82, 0.5)),
+              url('https://via.placeholder.com/1200x500/333333/ffffff?text=Banner+Image'); /* استخدم صورة حقيقية */
   background-size: cover;
   background-position: center;
-  height: 300px;
+  height: 400px; /* زيادة الارتفاع */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative; /* لوضع الزر */
 }
-
+.heroSubtitle{
+  color: #ff3b30;
+}
 .heroContent {
   text-align: center;
   color: white;
+  z-index: 1; /* لجعل المحتوى يظهر فوق التدرج */
 }
 
-.heroContent h1 {
-  font-size: 2.5rem;
+.heroTitle {
+  font-size: 3rem; /* تكبير العنوان */
   margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* تظليل للنص */
 }
 
-.heroContent p {
-  font-size: 1.2rem;
+.heroSubtitle {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* تظليل للنص */
 }
 
-/* إذا استخدمت صورة كعنصر JSX */
-/* .heroImage {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; /* خلف النص */
+.heroButton {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53); /* تدرج لوني للزر */
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px; /* شكل دائري */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4); /* ظل للزر */
+}
+
+.heroButton:hover {
+  background: linear-gradient(135deg, #ff5252, #ff7b47); /* تدرج مختلف عند التمرير */
+  transform: translateY(-2px); /* رفع الزر قليلاً */
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.5); /* ظل أكثر وضوحًا */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 300px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+}

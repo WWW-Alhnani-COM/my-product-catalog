@@ -1,0 +1,51 @@
+/* src/components/layout/SearchBar/SearchBar.module.css */
+.searchForm {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* تباعد من اليمين */
+}
+
+.searchInput {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 20px 0 0 20px; /* تفاف الحواف الجانبية */
+  font-size: 0.9rem;
+  width: 200px; /* عرض مبدئي */
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: #ff3b30;
+}
+
+.searchButton {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  border-radius: 0 20px 20px 0; /* تفاف الحواف الجانبية */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.searchButton:hover {
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .searchForm {
+    margin-left: 0;
+    margin-top: 0.5rem; /* تباعد من الأعلى */
+    width: 100%;
+  }
+  .searchInput {
+    width: 100%;
+    border-radius: 20px; /* تفاف الحواف بالكامل */
+  }
+  .searchButton {
+    border-radius: 20px; /* تفاف الحواف بالكامل */
+    margin-left: 0.5rem;
+  }
+}
