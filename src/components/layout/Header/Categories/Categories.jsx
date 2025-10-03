@@ -7,7 +7,7 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(true); // يظهر عند تحميل الصفحة
   const [lastScrollY, setLastScrollY] = useState(0);
 
   // أيقونة SVG لـ All Products
@@ -18,13 +18,15 @@ const Categories = () => {
     if (typeof window !== 'undefined') {
       const currentScrollY = window.scrollY;
 
-      // إخفاء الشريط عند التمرير لأسفل، وإظهاره عند التمرير لأعلى
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // إذا وصل المستخدم إلى أعلى الصفحة، أظهر الشريط
+      if (currentScrollY === 0) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
         // التمرير لأسفل - إخفاء
         setIsVisible(false);
-      } else {
-        // التمرير لأعلى - إظهار
-        setIsVisible(true);
+      } else if (currentScrollY < lastScrollY) {
+        // التمرير لأعلى - إظهار (اختياري، يمكنك إزالة هذا السطر إذا كنت ترغب في إخفائه دائمًا عند التمرير لأعلى حتى لا يصل إلى الأعلى)
+        // setIsVisible(true);
       }
 
       setLastScrollY(currentScrollY);
