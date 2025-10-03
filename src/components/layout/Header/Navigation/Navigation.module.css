@@ -64,7 +64,7 @@
   left: 0;
   right: 0;
   color: #ffffff;
-  background: #ff6b6b;
+  background: #ff6b6b59;
   border-top: 1px solid #e0e0e0;
   box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -89,14 +89,14 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: #ff3b30;
+  color: #ffffff;
   padding: 0.75rem 0.5rem;
   transition: all 0.3s ease;
   position: relative;
 }
 
 .mobileNavLink:hover {
-  color: #ff3b30;
+  color: #ffffff;
   background-color: rgba(102, 126, 234, 0.05);
 }
 
